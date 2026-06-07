@@ -1,0 +1,503 @@
+Advice for the career fair as a CS student with no outside projects or (CS) work experience
+
+Upvote
+19
+
+Downvote
+
+26
+Go to comments
+
+
+Share
+u/adobe avatar
+adobe
+•
+Promoted
+
+Build your world. Select, edit, and combine everyday images to create something totally new. Try the new Harmonize feature in Photoshop to instantly blend people and objects into a seamless composition.
+Learn More
+adobe.com
+Thumbnail image: Build your world. Select, edit, and combine everyday images to create something totally new. Try the new Harmonize feature in Photoshop to instantly blend people and objects into a seamless composition.
+Sort by:
+
+Best
+
+Search Comments
+Expand comment search
+Comments Section
+u/HyDreVv avatar
+HyDreVv
+•
+6y ago
+Tip 1: begin outside projects
+
+It will go a long way
+
+
+Upvote
+16
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/DawggyDawgCSE avatar
+DawggyDawgCSE
+•
+6y ago
+•
+Edited 6y ago
+Look on you tube for project tutorials to help gain ideas and learn more "hip" and relevant tech stacks then what is taught in school. Then try to implement them on your own. If you get stuck watch the video and use it to help you get unstuck. Do not just copy the code without understanding it because you need to be able to elaborate on it to possible employers to gain their interest. Literally this is what I did to help build my repository but the most important part I would say is add a unique feature if you haven't already that isn't present in the tutorial to really help flex your programming brain. I have a internship right now and I have another one in the summer with a different company, be able to talk about your projects and make sure they're interesting and cool and talk about how you went about your implementations and the roadblocks you encountered and how you overcame them. This is important to show you are willing to learn quickly and know how to implement "google foo".
+
+Also you will probably blow in your first few interviews.. I know I did. Look up S.T.A.R. for behavioral and look at leetcode easy for technical practice
+
+GOOD LUCK
+
+
+
+Upvote
+7
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+Computer Science (Software Engineering)
+Thanks!
+
+
+Upvote
+2
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/chilldemon avatar
+chilldemon
+•
+6y ago
+Make sure to use a bunch of tech jargon and buzzwords on your resume but be careful not to paint a dishonest representation of your skills. I would say aim for mild over-exaggeration at best. Then at the career fair go check out the least sexy companies there, the ones with no people at their booths. Also go as early as possible. If you go later in the day the recruiters and engineers will be exhausted and probably won't give you the same level of consideration.
+
+
+
+Upvote
+10
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+•
+Edited 6y ago
+Computer Science (Software Engineering)
+Sexy companies 👀
+
+
+Upvote
+4
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/relax_on_the_mat avatar
+relax_on_the_mat
+•
+6y ago
+Info Tech
+Emphasize the skills in which you have the most confidence and let them know what areas of technology you are passionate about
+
+If you are genuinely enthusiastic about a company, show it
+
+Play up your non-technical attributes (hard-worker, team-player, fast-learner, whatever)
+
+A positive personality and a passion to learn a lot and do quality work will go a looooong way. It boggles my mind the number of people that interview with absolutely zero enthusiasm for the position.
+
+
+Upvote
+4
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+[deleted]
+•
+6y ago
+Read up on the S/TAR method, state the Situation / Task you were asked to do, the Actions you took and the Results. Do you have a portfolio from school? I would give it a try you might get luck but see what they are looking for. Then apply online, write you resumes to match you experience (you major, tasks, portfolio) with the job description.
+
+
+
+Upvote
+2
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+Computer Science (Software Engineering)
+I do have some projects from school I can tweak but from what I’ve heard recruiters see these same projects on everyone’s resumes and it just shows you went to class and did the work. Thanks for the tips though!
+
+
+Upvote
+1
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/HersheyOfficial avatar
+u/HersheyOfficial
+•
+Promoted
+
+We did it, Trainers! You sent Team Rocket packing. Now enjoy your delicious Pokémon HERSHEY’S KISSES in peace, at least until they get the blimp back up and running.
+Learn More
+hersheyland.com
+Clickable image which will reveal the video player: We did it, Trainers! You sent Team Rocket packing. Now enjoy your delicious Pokémon HERSHEY’S KISSES in peace, at least until they get the blimp back up and running.
+Collapse video player
+
+0:00 / 0:00
+
+
+
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+Computer Science (Software Engineering)
+Completely forgot to mention I’m looking for an internship, not a post-undergrad job.
+
+
+Upvote
+2
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+LordUrkelTheGreat
+•
+6y ago
+Apostle of Steve Urkel
+this. i dont have any personal projects BUT i am part of different club projects. would this help me get an internship?
+
+
+
+Upvote
+2
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+Catradorra
+•
+6y ago
+Yes. You should be fine, just show a passion for what you do and mention the extracurriculars on your resume.
+
+
+Upvote
+1
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/AppleGenius115 avatar
+AppleGenius115
+•
+6y ago
+CSE (Cybersecurity) '20
+Put class projects as personal ones. They won't know what's what .
+
+
+Upvote
+2
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+GuerroCanelo
+•
+6y ago
+My advice:
+
+go to the fair only to practice your speech and get the nerves off
+
+ask your favorite companies what they look for in resumes and what type of projects/knowledge would impress them
+
+don’t apply to internships this semester (cause if you do and get rejected, which most likely you will without experience, most companies won’t consider you for another year)
+
+work on a big personal project that you can show the recruiters @next semesters career fair. Then apply then
+
+IMO, I’ve never seen a CS student get an internship without having some project experience.
+
+
+
+Upvote
+2
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+Computer Science (Software Engineering)
+I have two summers left in my undergraduate. It seems counterproductive to not attempt to get an internship this summer. I mean even making a small project to have something seems better than not trying at all.
+
+
+
+Upvote
+12
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+Catradorra
+•
+6y ago
+Absolutely apply, this is your last chance to get an internship before graduation. Apply to 100+ companies on Handshake before mid-February. Have you installed Handshake?
+
+And whatever you do, don't give up or lose hope. That's when you have lost. I didn't get my junior year internship until March and a friend didn't get theirs until early May. Not over till it's over.
+
+
+
+Upvote
+3
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+Computer Science (Software Engineering)
+Yeah I have an up to date linked in and handshake with work experience, overview, resume, skills etc. I applied to about 20 company’s in mid December, but stopped after being out of town then starting up classes. I wanted to overhaul my resume and prepare myself more before applying anywhere else.
+
+
+
+Upvote
+2
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+Catradorra
+•
+6y ago
+That's great, just be careful about overpreparing and underapplying - a lot of people make the mistake of waiting too long to apply because they want their resume/applications to be perfect and then by the time they apply, the companies have already selected their candidates. If I were you I would make sure you've got a solid application ready to send out and do 75+ more applications by mid-February.
+
+
+
+Upvote
+3
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+Computer Science (Software Engineering)
+I’ll do that, thanks.
+
+
+Upvote
+1
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+Computer Science (Software Engineering)
+Not to mention it’s an internship I’m looking for, not a full or part time position. I don’t think every intern or even a vast majority of interns hired come with experience working in the CS field.
+
+
+
+Upvote
+6
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+GuerroCanelo
+•
+6y ago
+Wooops, kinda assumed that you were freshmen. Then yeah, good idea. Small project
+
+
+
+Upvote
+2
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/civ10 avatar
+civ10
+OP
+•
+6y ago
+Computer Science (Software Engineering)
+Should have mentioned that, thanks for the input!
+
+
+Upvote
+3
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+u/Abbott-FreeStyle-US avatar
+u/Abbott-FreeStyle-US
+•
+Promoted
+
+DYK the FreeStyle Libre 3 Plus sensor gives real-time glucose readings to help see how diet impacts diabetes?
+Sign Up
+freestyle.abbott
+Thumbnail image: DYK the FreeStyle Libre 3 Plus sensor gives real-time glucose readings to help see how diet impacts diabetes?
+Prcrstntr
+•
+6y ago
+Computer Science '19 (undergraduate)
+Hurry and learn VBA and you can probably get a not-exciting internship that way.
+
+
+Upvote
+1
+
+Downvote
+
+Reply
+
+Award
+
+Share
+
+
