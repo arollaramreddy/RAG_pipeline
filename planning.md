@@ -51,11 +51,11 @@ A RAG system can bring together both official information and student experience
      numbers fit the structure of your documents.
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
-**Chunk size:** 
+**Chunk size: 300 tokens** 
 
-**Overlap:**
+**Overlap: 50 tokens**
 
-**Reasoning:** 
+**Reasoning:** I will use fixed-size chunking with overlap because the Reddit discussions contain comments of different lengths. Some comments are short, while others are much longer. A chunk size of 300 tokens will help keep related information together, and a 50-token overlap will help preserve context between chunks. This approach will improve retrieval accuracy and reduce the chance of losing important information when the text is split into multiple chunks.
 
 ---
 
@@ -67,11 +67,11 @@ A RAG system can bring together both official information and student experience
      would you weigh in choosing a different embedding model — context length, multilingual
      support, accuracy on domain-specific text, latency? -->
 
-**Embedding model:**
+**Embedding model:** all-MiniLM-L6-v2 (Sentence Transformers)
 
-**Top-k:**
+**Top-k:** 5
 
-**Production tradeoff reflection:**
+**Production tradeoff reflection:** I will use the all-MiniLM-L6-v2 embedding model because it is free, open-source, lightweight, and performs well for semantic search tasks. I will retrieve the top 5 most relevant chunks for each query. If I were deploying this system for real users, I would compare different open-source embedding models based on retrieval accuracy, speed, context understanding, multilingual support, and hardware requirements before selecting the final model.
 
 ---
 
@@ -84,11 +84,11 @@ A RAG system can bring together both official information and student experience
 
 | # | Question | Expected answer |
 |---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| 1 | What do students say about the usefulness of ASU career fairs? | Students generally say career fairs help with networking, meeting recruiters, practicing interviews, and sometimes obtaining internships or jobs. |
+| 2 | What do students think about ASU Career Services? | Students have mixed opinions. Some feel Career Services provides limited help, while others believe it offers guidance but cannot directly create job opportunities. |
+| 3 | Is Handshake useful for finding internships and jobs? | Students report both positive and negative experiences. Some found internships and jobs through Handshake, while others received irrelevant job recommendations or few responses. |
+| 4 | What advice do students give for finding on-campus jobs? | Students recommend tailoring resumes and cover letters, following application instructions carefully, networking with staff and professors, and applying consistently. |
+| 5 | What strategies do students recommend for improving internship and job opportunities? | Students recommend attending career fairs, building projects, networking with recruiters, applying early, gaining research experience, and improving resumes and interview skills. |
 
 ---
 
@@ -98,9 +98,14 @@ A RAG system can bring together both official information and student experience
      Consider: noisy or inconsistent documents, missing source attribution, off-topic
      retrieval, chunks that split key information across boundaries. -->
 
-1.
 
-2.
+1. The discussions contain noisy data such as advertisements, deleted comments, usernames, and Reddit interface text. This may reduce retrieval quality if irrelevant content is retrieved.
+
+2. Similar topics appear across multiple discussions. For example, career fairs, internships, and Handshake are discussed repeatedly. This may cause the system to retrieve overlapping or repetitive information instead of the most relevant answer.
+
+3. Important information may be split across multiple chunks. If related comments are separated during chunking, the retrieved answer may miss important context.
+
+4. Some discussions contain personal opinions that may conflict with each other. The system may retrieve different viewpoints for the same question, making it difficult to generate a single clear answer.
 
 ---
 
@@ -111,6 +116,8 @@ A RAG system can bring together both official information and student experience
      Label each stage with the tool or library you're using.
      You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
+
+Document Ingestion -> Chunking -> Embedding + Vector Store -> Retrieval -> Generation
 
 ---
 
@@ -125,6 +132,19 @@ A RAG system can bring together both official information and student experience
      "I'll use AI to help me code" is not a plan.
      "I'll give Claude my Chunking Strategy section and ask it to implement chunk_text()
      with my specified chunk size and overlap" is a plan. -->
+
+
+I will use Claude Code to help build the pipeline.
+
+- For document ingestion and cleaning, I will give Claude Code the project requirements, the Architecture section, and the file format. I will ask it to write Python code for loading and cleaning the discussion files. I will verify the output by checking that all discussion files are loaded correctly and that the text matches the source data.
+
+- For chunking, I will give Claude Code my Chunking Strategy section and ask it to implement fixed-size chunking with a chunk size of 300 tokens and an overlap of 50 tokens. I will verify the output by checking the chunk sizes and making sure the context is preserved.
+
+- For embeddings and vector storage, I will give Claude Code my Retrieval Approach section and ask it to use a free embedding model such as BAAI/bge-small-en-v1.5. I will verify the output by checking that the embeddings are created and stored correctly.
+
+- For retrieval and generation, I will give Claude Code my Evaluation Plan and Architecture section and ask it to implement top-k retrieval with k = 5. I will verify the output by testing the system with my evaluation questions and checking whether the answers match the expected answers.
+
+- For debugging, I will use Claude Code to fix errors and improve the code. I will verify each change by running the pipeline again and checking that it still follows my project requirements.
 
 **Milestone 3 — Ingestion and chunking:**
 
