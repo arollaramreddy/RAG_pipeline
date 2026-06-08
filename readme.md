@@ -47,7 +47,7 @@ RAG_pipeline/
 Raw discussions
       ↓  clean_docs.py          — remove ads, vote buttons, nav boilerplate
 Cleaned text
-      ↓  data_ingestion_chunking.py  — sliding-window token chunks (400 tokens, 80 overlap)
+      ↓  data_ingestion_chunking.py  — sliding-window token chunks (200 tokens, 30 overlap)
 Chunks
       ↓  embed_retrieve.py      — all-MiniLM-L6-v2 embeddings → ChromaDB (cosine similarity)
 Vector index
