@@ -7,6 +7,11 @@ Runs the full ingestion pipeline in order:
     Step 3 : embed_retrieve          — embed chunks and store in ChromaDB
 """
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent / "code"))
+
 import clean_docs
 from data_ingestion_chunking import ingest_and_chunk, CHUNK_SIZE, CHUNK_OVERLAP
 from embed_retrieve import embed_and_store, EMBEDDING_MODEL, COLLECTION_NAME

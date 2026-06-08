@@ -220,10 +220,10 @@ def clean_content(text: str) -> str:
 
 def main():
     src_dir = os.path.join(
-        os.path.dirname(__file__), 'documents', 'textFiles'
+        os.path.dirname(__file__), '..', 'documents', 'textFiles'
     )
     dst_dir = os.path.join(
-        os.path.dirname(__file__), 'documents', 'cleanedTextFiles'
+        os.path.dirname(__file__), '..', 'documents', 'cleanedTextFiles'
     )
     os.makedirs(dst_dir, exist_ok=True)
 
