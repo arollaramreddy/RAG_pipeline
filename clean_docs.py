@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 """
-Clean Reddit discussion text files by removing UI boilerplate:
-  - Vote buttons (Upvote/Downvote/Reply/Award/Share)
-  - Standalone vote counts (bare numbers)
-  - Navigation text (Sort by, Search Comments, etc.)
-  - Promoted ad blocks (avatar → username → • → Promoted → ad content → Thumbnail image)
-  - Avatar reference lines (u/username avatar)
-  - Profile badge lines
-  - Video player artifacts
-  - Mass-deleted comment filler
-  - r/ASU title duplicates
+Clean Reddit and Quora discussion text files by removing UI boilerplate.
 
-Kept: post title, post body, usernames, timestamps, degree info, OP marker, comment text.
+Reddit boilerplate removed:
+  - Vote buttons (Upvote/Downvote/Reply/Award/Share) and bare vote counts
+  - Navigation text (Sort by, Search Comments, etc.)
+  - Promoted ad blocks (avatar → username → • → Promoted → ad → Thumbnail image)
+  - Avatar reference lines (u/username avatar), profile badge lines
+  - Video player artifacts, mass-deleted comment filler, r/ASU title duplicates
+
+Quora boilerplate removed:
+  - "Profile photo for …" avatar lines
+  - "Sort" navigation, answer counts ("3 Answers"), "· " separators
+  - Bot timestamps ("BotJan 21"), year-only timestamps ("8y", "10y")
+  - Credentials/bio lines (containing "Author has", "Upvoted by")
+  - Upvoter name lines (the name that follows an "Upvoted by" line)
+  - Upvoter credential lines (starting with ", " and containing degree info)
+  - View/share counts ("6K viewsView upvotesView 1 share")
+  - "Promoted by …" and "Sponsored by …" ad blocks and their content
+  - "1 of 299 answers" style counters
+
+Kept: question title, answer text, answerer names, timestamps, context.
 """
 
 import re
@@ -20,44 +29,68 @@ import os
 
 # ── exact-match lines to always discard ──────────────────────────────────────
 EXACT_REMOVE = {
+    # Reddit
     'Upvote', 'Downvote', 'Reply', 'Award', 'Share',
     'Go to comments', 'Sort by:', 'Best',
     'Search Comments', 'Expand comment search', 'Comments Section',
     '•',
     'Promoted', 'Learn More', 'Shop Now', 'Order Now', 'Sign Up',
     'Collapse video player', 'Remind Me',
-    # Known ASU subreddit joke flairs
     'Apostle of Steve Urkel',
-    # Mass-deleted filler
     'This post was mass deleted and anonymized with Redact',
+    # Quora
+    'Sort',
+    ' · ',
 }
 
 # ── regex patterns to discard ─────────────────────────────────────────────────
 REGEX_REMOVE = [
-    r'^u/.+ avatar$',               # avatar reference lines
+    # Reddit
+    r'^u/.+ avatar$',
     r'^Profile Badge for the Achievement',
     r'^Thumbnail image:',
     r'^Clickable image',
-    r'^-?\d+$',                      # bare vote / comment counts (incl. negative)
-    r'^Coming Up ·',                # scheduled AMA promos
-    r'^\d+:\d+ / \d+:\d+$',        # video time counter (0:00 / 0:00)
-    r'^•\s*Edited \d+',            # edit timestamps with leading bullet
-    r'^Edited \d+',                # edit timestamps without bullet
-    r'^major \'year',              # flair placeholder text
-    r'^r/\w+ - .+',               # subreddit-prefixed duplicate titles
-    # Redact random-word strings: 9-13 all-lowercase words, no punctuation
-    r'^([a-z]+ ){8,12}[a-z]+$',
+    r'^-?\d+$',
+    r'^Coming Up ·',
+    r'^\d+:\d+ / \d+:\d+$',
+    r'^•\s*Edited \d+',
+    r'^Edited \d+',
+    r'^major \'year',
+    r'^r/\w+ - .+',
+    r'^([a-z]+ ){8,12}[a-z]+$',       # Redact random-word filler
+    # Quora — avatars, nav, timestamps
+    r'^Profile photo for .+',          # "Profile photo for Clint Potts"
+    r'^\d+ Answers?$',                 # "3 Answers"
+    r'^Bot[A-Za-z]+ \d+$',            # "BotJan 21"
+    r'^\d+[y]$',                       # "8y", "10y"
+    r'^\s*·\s*$',                      # bare " · " separator
+    # Quora — view/vote/share counts
+    r'^\d+(\.\d+)?[KkMm]? viewsView', # "6K viewsView upvotesView 1 share"
+    r'^\d+ of \d+ answers?',           # "1 of 299 answers"
+    # Quora — bio / credentials lines
+    r'.+Author has .+ answer views',   # "researcher and writerAuthor has 28.2K…"
+    r'.+Upvoted by\s*$',              # "Former Residence Hall Director…Upvoted by"
+    r'^, .+(University|Institute|College|School).+',  # upvoter credential line
+    r'.+Updated [A-Z][a-z]+ \d+',     # "Finance Writer…Updated May 27"
+    # Quora — promoted / sponsored headers
+    r'^Promoted by .+',
+    r'^Sponsored by .+',
 ]
 
 
 def is_timestamp(s: str) -> bool:
-    """Reddit relative timestamp, e.g. '10mo ago', '7y ago', '4mo ago'."""
+    """Reddit relative timestamp, e.g. '10mo ago', '7y ago'."""
     return bool(re.match(r'^\d+[a-z]+ ago$', s.strip()))
 
 
-def is_avatar_line(s: str) -> bool:
-    """Lines like 'u/username avatar'."""
+def is_reddit_avatar(s: str) -> bool:
+    """Reddit avatar lines: 'u/username avatar'."""
     return bool(re.match(r'^u/.+ avatar$', s.strip()))
+
+
+def is_quora_avatar(s: str) -> bool:
+    """Quora avatar lines: 'Profile photo for …'."""
+    return s.strip().startswith('Profile photo for ')
 
 
 def should_remove(line: str) -> bool:
@@ -65,7 +98,7 @@ def should_remove(line: str) -> bool:
     if stripped in EXACT_REMOVE:
         return True
     for pat in REGEX_REMOVE:
-        if re.match(pat, stripped):
+        if re.search(pat, stripped):
             return True
     return False
 
@@ -74,34 +107,28 @@ def clean_content(text: str) -> str:
     lines = text.split('\n')
     result: list[str] = []
     i = 0
+    skip_next_name = False   # True after an "Upvoted by" line to drop the upvoter name
 
     while i < len(lines):
         stripped = lines[i].strip()
 
-        # ── Detect promoted ad block ──────────────────────────────────────────
-        # Pattern: avatar line → (u/name or name) → • → Promoted
-        if is_avatar_line(stripped):
+        # ── Reddit promoted ad block ──────────────────────────────────────────
+        # Pattern: u/X avatar → username → • → Promoted → ad content → Thumbnail
+        if is_reddit_avatar(stripped):
             j = i + 1
-            # Advance past the username line (u/name or plain name)
             if j < len(lines) and (
                 lines[j].strip().startswith('u/')
                 or re.match(r'^[A-Za-z0-9_\-\[\]\.]+$', lines[j].strip())
             ):
                 j += 1
-            # Advance past the bullet
             if j < len(lines) and lines[j].strip() == '•':
                 j += 1
-            # If next non-empty line is "Promoted" → this is an ad block
             if j < len(lines) and lines[j].strip() == 'Promoted':
-                # Skip past "Promoted"
                 i = j + 1
-                # Consume ad content until a reliable end marker
                 while i < len(lines):
                     cur = lines[i].strip()
-                    # End: thumbnail / clickable image line
                     if cur.startswith('Thumbnail image:') or cur.startswith('Clickable image'):
                         i += 1
-                        # Also consume any trailing video-player artifacts
                         while i < len(lines):
                             t = lines[i].strip()
                             if (t in ('Collapse video player', 'Remind Me', '')
@@ -111,30 +138,64 @@ def clean_content(text: str) -> str:
                             else:
                                 break
                         break
-                    # End: next comment's avatar line (real comment, not another ad)
-                    elif is_avatar_line(cur):
-                        break  # don't advance i; main loop handles it
-                    # End: username line followed by • and then a timestamp
-                    # (handles ads that end without a Thumbnail line)
-                    elif (i + 1 < len(lines) and lines[i + 1].strip() == '•'):
+                    elif is_reddit_avatar(cur):
+                        break
+                    elif i + 1 < len(lines) and lines[i + 1].strip() == '•':
                         k = i + 2
                         if k < len(lines) and lines[k].strip() == 'OP':
                             k += 1
                         if k < len(lines) and is_timestamp(lines[k].strip()):
-                            break  # don't advance i; main loop handles it
+                            break
                         else:
                             i += 1
                     else:
                         i += 1
-                continue  # back to main while
+                continue
 
             else:
-                # Not an ad block — just a regular user avatar line; skip it
-                i += 1
+                i += 1   # just a regular avatar line — skip it
                 continue
+
+        # ── Quora avatar lines — skip (name on next line is kept) ────────────
+        if is_quora_avatar(stripped):
+            i += 1
+            continue
+
+        # ── Quora Promoted/Sponsored ad block ────────────────────────────────
+        # "Promoted by …" blocks contain an embedded answer with its own avatar
+        # and end with a view-count line — skip everything until that line.
+        # "Sponsored by …" blocks have no embedded avatar and end at the next
+        # real answer's avatar line (which we leave for the main loop).
+        if re.match(r'^Promoted by .+', stripped):
+            i += 1
+            while i < len(lines):
+                cur = lines[i].strip()
+                if re.match(r'^\d+(\.\d+)?[KkMm]? viewsView', cur):
+                    i += 1   # skip the view-count line too
+                    break
+                i += 1
+            continue
+
+        if re.match(r'^Sponsored by .+', stripped):
+            i += 1
+            while i < len(lines):
+                cur = lines[i].strip()
+                if is_quora_avatar(cur):
+                    break    # don't advance i; main loop handles it
+                i += 1
+            continue
+
+        # ── Drop upvoter name line (line immediately after "Upvoted by") ─────
+        if skip_next_name and stripped:
+            skip_next_name = False
+            i += 1
+            continue
 
         # ── Regular boilerplate removal ───────────────────────────────────────
         if should_remove(lines[i]):
+            # If this line contains "Upvoted by", the NEXT name line is also junk
+            if 'Upvoted by' in stripped:
+                skip_next_name = True
             i += 1
             continue
 

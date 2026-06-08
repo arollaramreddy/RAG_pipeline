@@ -29,8 +29,8 @@ hf_logging.set_verbosity_error()
 
 # ── Paths & hyper-parameters (mirrors planning.md Chunking Strategy) ─────────
 CLEANED_DIR    = Path(__file__).parent / "documents" / "cleanedTextFiles"
-CHUNK_SIZE     = 300   # tokens per chunk
-CHUNK_OVERLAP  = 50    # tokens shared between consecutive chunks
+CHUNK_SIZE     = 200   # tokens per chunk
+CHUNK_OVERLAP  = 30    # tokens shared between consecutive chunks
 TOKENIZER_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 # ── Tokenizer (loaded once at import time) ────────────────────────────────────

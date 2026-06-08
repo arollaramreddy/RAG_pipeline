@@ -1,0 +1,47 @@
+Do ASU software engineering master's students get TA/RA/GA opportunities or is it just for MS CS students?
+Assistant
+Short answer: Yes—Arizona State University (ASU) offers TA/RA/GA opportunities to students in the MS in Software Engineering, but availability, eligibility rules, and competitiveness differ from the MSCS program. Funding is more limited in professional or industry-oriented programs than in research-heavy CS degrees.
+
+Key points and practical guidance
+
+Types of positions
+Graduate Teaching Assistant (GTA/TA): teaching-related roles (grading, labs, recitations, guest lecturing). Managed by academic units and typically open to graduate students across related programs, including Software Engineering.
+Graduate Research Assistant (GRA/RA): research-funded positions tied to faculty grants/projects. Available when faculty in software engineering or allied labs have grant funding and accept SE students onto their teams.
+Graduate Assistant (GA)/Administrative: non-teaching staff roles supporting departments, labs, or centers. Often advertised centrally and can be held by any eligible graduate student.
+Eligibility and prioritization
+Must be a degree-seeking graduate student in good academic standing and meet enrollment requirements (usually minimum credit hours).
+International students need valid F-1/J-1 work authorization compliance (on-campus employment rules apply).
+Departments often prioritize PhD and MSCS students for research-funded GRAs because those programs are explicitly research-oriented. MS Software Engineering (especially professional or online tracks) may be secondary priority for limited GA/RA funding.
+GTAs for large undergraduate courses (programming, data structures) are commonly filled by CS and SE students; faculty and course coordinators decide hires.
+How competitive and where it’s concentrated
+More RA opportunities in research groups: AI, systems, security, software engineering research labs. If you want RA work, target SE faculty with active grants.
+On-campus GTA and GA roles are distributed across Tempe, Polytechnic, Downtown Phoenix, and West campuses depending on where the program and courses are offered.
+Part-time, hourly TA/GA roles may be more accessible than full stipend GRAs.
+How to increase chances
+Contact faculty whose research aligns with your interests and express willingness to join as an RA; include concise evidence of relevant skills (GitHub, publications, course projects).
+Build TA-relevant experience: past tutoring, grading, lab assistance, or strong course performance in core CS/SE classes.
+Apply early each semester to posted GTA/GA openings on the department and university job sites; monitor course coordinator announcements.
+Network with instructors and graduate coordinators; ask about upcoming grant-funded projects or openings.
+Maintain a strong GPA and meet required enrollment/work-authorization rules for eligibility.
+Typical funding levels and workload
+GTA/GRA appointments range from partial tuition support plus stipend to hourly wages; level and hours vary (commonly 10–20 hours/week).
+Full funding is more common for PhD and research MS students; SE master’s students should expect mixed outcomes—some secure part-time support, fewer get full-funded RA roles.
+Where to find openings
+ASU School of Computing, Informatics, and Decision Systems Engineering (CIDSE) and Ira A. Fulton Schools of Engineering job boards.
+Individual faculty web pages and lab sites.
+ASU Handshake and university HR postings for student employment.
+Departmental graduate coordinator or program director announcements.
+Examples (typical stories)
+
+A SE MS student receives a GTA position grading assignments for introductory programming after applying through the department; works 10–15 hours/week and receives a stipend plus partial tuition reduction.
+A SE student joins a software engineering research lab led by a professor with an NSF grant; becomes an RA working on empirical software engineering experiments while receiving a stipend tied to the grant.
+A fully online/professional-track SE student finds fewer on-campus RA opportunities but obtains an adjunct GA role supporting course materials and forums remotely.
+Bottom line: MS Software Engineering students at ASU are eligible for TA/RA/GA roles, but opportunities are fewer and often more competitive compared with MSCS/PhD students. Proactivity—contacting faculty, applying early, demonstrating relevant skills—substantially improves chances.
+
+Bhumik Thakkar
+Answer based on my stay at asu during Aug 2013 - May 2015.
+Only MS in CS students were eligible for a TAship.
+Other students, MCS or Software Engineering, were eligible for RA, grader, lab assistant, EIP and other such opportunities.
+Search more about EIP from asu's website. There was a job portal as well for searching and applying for on-campus jobs.
+Sometimes professors don't put grader's openings on job portal, so I would advise to find all undergraduate courses for a given semester and contact the professors directly.
+All the best!
