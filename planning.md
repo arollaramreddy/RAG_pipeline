@@ -147,6 +147,7 @@ I will use Claude Code to help build the pipeline.
 - For debugging, I will use Claude Code to fix errors and improve the code. I will verify each change by running the pipeline again and checking that it still follows my project requirements.
 
 **Milestone 3 — Ingestion and chunking:**
+total chunks =60
 
 **Milestone 4 — Embedding and retrieval:**
 
