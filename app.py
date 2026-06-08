@@ -6,6 +6,11 @@ Run:
 Then open http://localhost:7860
 """
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent / "code"))
+
 import gradio as gr
 
 from generation import generate, TOP_K

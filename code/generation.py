@@ -23,7 +23,7 @@ from groq import Groq
 from embed_retrieve import retrieve, TOP_K
 
 # Load GROQ_API_KEY from .env (if present)
-load_dotenv(Path(__file__).parent / ".env")
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 # ── Config ────────────────────────────────────────────────────────────────────
 GROQ_MODEL = "llama-3.3-70b-versatile"

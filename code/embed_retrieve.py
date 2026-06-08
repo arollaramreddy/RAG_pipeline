@@ -22,7 +22,7 @@ from data_ingestion_chunking import ingest_and_chunk
 # ── Config (mirrors planning.md Retrieval Approach) ───────────────────────────
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 COLLECTION_NAME = "asu_career_services"
-CHROMA_PATH     = str(Path(__file__).parent / "chroma_db")
+CHROMA_PATH     = str(Path(__file__).parent.parent / "chroma_db")
 TOP_K           = 5
 
 # ── Load embedding model once at import time ──────────────────────────────────
