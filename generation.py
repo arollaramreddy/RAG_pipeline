@@ -115,10 +115,13 @@ def generate(query: str, top_k: int = TOP_K) -> dict:
         s for chunk in chunks for s in chunk["source"].split(" + ")
     ))
 
-    # Programmatically append a sources block so attribution is always present
-    sources_block = "\n\nSources: " + ", ".join(sources)
-    answer_with_sources = answer + sources_block
+    # Only append the sources block when the LLM produced a real answer.
+    # If it replied with the no-information message, sources are irrelevant.
+    NO_INFO = "The provided context does not contain enough information to answer this question."
+    if NO_INFO in answer:
+        return {"answer": answer, "sources": [], "chunks": chunks}
 
+    answer_with_sources = answer + "\n\nSources: " + ", ".join(sources)
     return {"answer": answer_with_sources, "sources": sources, "chunks": chunks}
 
 
